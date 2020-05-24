@@ -15,6 +15,10 @@ export const FETCH_BOOKS_IN_PROGRESS_SUCCEEDED =
   'FETCH_BOOKS_IN_PROGRESS_SUCCEEDED'
 export const FETCH_BOOKS_IN_PROGRESS_FAILED = 'FETCH_BOOKS_IN_PROGRESS_FAILED'
 
+export const FETCH_BOOKS_REQUEST = 'FETCH_BOOKS_REQUEST'
+export const FETCH_BOOKS_SUCCEEDED = 'FETCH_BOOKS_SUCCEEDED'
+export const FETCH_BOOKS_FAILED = 'FETCH_BOOKS_FAILED'
+
 export const fetchMeta = () => ({
   type: FETCH_META_REQUEST,
 })
@@ -32,4 +36,8 @@ export const fetchBooksInProgress = (username) => ({
   payload: {
     username,
   },
+})
+
+export const fetchBooks = () => ({
+  type: FETCH_BOOKS_REQUEST,
 })

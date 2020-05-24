@@ -1,4 +1,4 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, all } from 'redux-saga/effects'
 import * as api from '../api'
 import {
   FETCH_META_SUCCEEDED,
@@ -52,4 +52,9 @@ export const watchBookRatings = function* watchFetchRatings() {
       payload: { error: e.message },
     })
   }
+}
+
+export const watchBooks = function* watchFetchBooks() {
+  const orchestrated = [watchBookRatings, watchBookImages, watchBookMeta]
+  yield all(orchestrated.map((fn) => call(fn)))
 }
