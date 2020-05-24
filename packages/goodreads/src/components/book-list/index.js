@@ -52,7 +52,8 @@ class BookList extends Component {
 
 function mapStateToProps(state) {
   const { meta, images, ratings } = state.books
-  const authenticated = false
+  const { error } = state.auth
+  const authenticated = error === null
   return { meta, images, ratings, authenticated }
 }
 
